@@ -15,12 +15,22 @@ let lista=[];
 
 boton.addEventListener("click", function () {
 
+
     let persona={
         Usuario:usuario.value,
         correoElectrónico:correo.value,
         Contraseña:contraseña.value,
     }    
 
-lista.push(persona)
+let lista= JSON.parse(localStorage.getItem ("usuarios")) || [];
+
+lista.push(persona);
+
+localStorage.setItem("usuarios", JSON.stringify(lista))
+
+usuario.value="";
+correo.value="";
+contraseña.value="";
+
 console.log (lista)
 })
