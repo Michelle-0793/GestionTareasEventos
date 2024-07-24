@@ -5,13 +5,7 @@ const contraseña=document.getElementById("contraseña");
 const boton=document.getElementById("btnRegistrarse");
 
 
-let nombre1=nombre.value
-let usuario1=usuario.value;
-let correo1=correo.value;
-let contraseña1=contraseña.value;
-
-
-let lista=[];
+const lista=JSON.parse(localStorage.getItem ("personasRegistradas")) || [];
 
 boton.addEventListener("click", function () {
 
@@ -32,6 +26,5 @@ usuario.value="";
 correo.value="";
 contraseña.value="";
 
-alert ("Se ha registrado con éxito")
-console.log (lista)
+window.location.href="iniciarSesión.html"
 })
