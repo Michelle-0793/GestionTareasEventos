@@ -22,15 +22,16 @@ boton.addEventListener("click", function () {
         Contraseña:contraseña.value,
     }    
 
-let lista= JSON.parse(localStorage.getItem ("usuarios")) || [];
+let lista= JSON.parse(localStorage.getItem ("Personas registradas")) || [];
 
 lista.push(persona);
 
-localStorage.setItem("usuarios", JSON.stringify(lista))
+localStorage.setItem("Personas registradas", JSON.stringify(lista))
 
 usuario.value="";
 correo.value="";
 contraseña.value="";
 
+alert ("Se ha registrado con éxito")
 console.log (lista)
 })
