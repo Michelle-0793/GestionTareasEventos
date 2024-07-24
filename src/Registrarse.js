@@ -23,11 +23,9 @@ boton.addEventListener("click", function () {
         Contraseña:contraseña.value,
     }    
 
-let lista= JSON.parse(localStorage.getItem ("Personas registradas")) || [];
-
 lista.push(persona);
 
-localStorage.setItem("Personas registradas", JSON.stringify(lista))
+localStorage.setItem("personasRegistradas", JSON.stringify(lista))
 
 nombre.value="";
 usuario.value="";
