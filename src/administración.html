@@ -4,13 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tareas y Eventos</title>
+
+    <link rel="stylesheet" href="/administración.css">
 </head>
 <body>
-    <h1>Administración de Tareas y Eventos</h1>
+    <h1>Gestión de tareas y eventos</h1>
 
-<input id="" type="text">
+<br>
 
+<div class="input">
+<input class="input1" id="inputTareaEvento" type="text">
+<br><br><br>
+<input class="input2" id="fechaInput" type="text">
 
+</div>
+
+<br><br>
+
+<div class="divBotones">
+<button id="btnGuardar">Guardar</button>
+
+<select name="select" id="select">
+    <option value="tarea">Tarea</option>
+    <option value="evento">Evento</option>
+</select>
+</div>
+<br><br><br>
+
+<div class="gestión">
+   <div class="tareas" id="cajaTareas">
+   <h2>TAREAS</h2>
+   </div>
+
+   <div></div>
+
+   <div class="eventos" id="cajaEventos">
+   <h2>EVENTOS</h2>
+   </div>
+</div>
 
 <script src="/administración.js"></script>
 </body>

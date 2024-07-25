@@ -19,7 +19,6 @@ for (let index = 0; index < lista.length; index++) {
   }else{
     usuario.value="";
     contraseña.value="";
-    alert ("Usted no está registrado")
   }
 
   }})
