@@ -16,6 +16,6 @@ for (let index = 0; index < lista.length; index++) {
     usuario.value="";
     contraseña.value="";
   }
-
+window.location.href="administración.html"
 
   }})
