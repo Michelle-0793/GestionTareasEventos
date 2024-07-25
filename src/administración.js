@@ -13,10 +13,20 @@ const cajaEventos = document.getElementById("cajaEventos");
 
 
 btnGuardar.addEventListener("click", function () {
-    if (select.value ==="tarea") {
-        
-    }
+const sumaTareasEventos = inputTareaEvento.value+ " " +fechaInput.value;
+const tipo = select.value;
+etiquetaP = document.createElement("p");
+
+e
+
+
+if (tipo === "tarea") {
+    cajaTareas.appendChild(etiquetaP);
+}
+
+if (tipo ==="evento") {
+    cajaEventos.appendChild(etiquetaP);
+}
+
 })
-
-
-
+  
