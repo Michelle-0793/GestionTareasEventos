@@ -13,10 +13,13 @@ for (let index = 0; index < lista.length; index++) {
   let contraseñaRegistrada=lista[index].Contraseña;
 
   if (usuarioRegistrado==usuario.value  && contraseñaRegistrada==contraseña.value) {
+
+    window.location.href="administración.html"
+    
+  }else{
     usuario.value="";
     contraseña.value="";
+    alert ("Usted no está registrado")
   }
-
-window.location.href="administración.html"
 
   }})
