@@ -1,5 +1,5 @@
 const inputTareaEvento = document.getElementById("inputTareaEvento");
-const fechaInput = document.getElementById("fechaInput");
+const fechaPrioridadInput = document.getElementById("fechaPrioridadInput");
 const btnGuardar = document.getElementById("btnGuardar");
 const select = document.getElementById("select")
 const cajaTareas = document.getElementById("cajaTareas");
@@ -8,19 +8,20 @@ const cajaEventos = document.getElementById("cajaEventos");
 
 btnGuardar.addEventListener("click", function () {
 const texto = inputTareaEvento.value;
-const fecha = fechaInput.value;
-const tipo = select.value; 
+const fecha = fechaPrioridadInput.value;
+const tipo = select.value;
+const prioridad = fechaPrioridadInput.value
 
 if (tipo==="tarea") {
-    if (texto === "") {
-    alert ("Debe ingresar una tarea")  
+    if (texto === "" && prioridad === "") {
+    alert ("Debe ingresar una tarea o evento")  
     
 }else{
     const etiquetaP = document.createElement("p");
     const btnEliminar = document.createElement("button");
     const btnEditar = document.createElement("button");
 
-    etiquetaP.innerHTML = inputTareaEvento.value;
+    etiquetaP.innerHTML = texto+ " " +prioridad;;
     cajaTareas.appendChild(etiquetaP);
 
     btnEliminar.innerHTML = "Eliminar";
@@ -38,17 +39,20 @@ btnEliminar.addEventListener("click", function () {
 
 btnEditar.addEventListener("click", function () {
        const inputEdit = document.createElement("input");
+       const inputEditPrioridad =document.createElement("input");
        const btnSave = document.createElement("button");
 
     inputEdit.value = texto;
+    inputEditPrioridad.value = prioridad;
     etiquetaP.innerHTML ="";
     etiquetaP.appendChild(inputEdit);
+    etiquetaP.appendChild(inputEditPrioridad);
 
     btnSave.innerHTML = "Guardar";
     etiquetaP.appendChild(btnSave);
 
     btnSave.addEventListener("click", function () {
-        etiquetaP.innerHTML = inputEdit.value;  
+        etiquetaP.innerHTML = inputEdit.value+ " " +inputEditPrioridad.value
     });
 });
 
@@ -57,7 +61,7 @@ btnEditar.addEventListener("click", function () {
 }else{ 
 
     if (texto === "" || fecha ==="") {
-        alert ("Debe ingresar un título y fecha para el evento") 
+        alert ("Debe ingresar una tarea o evento") 
     } else {
     const etiquetaP = document.createElement("p");
     const btnEliminar = document.createElement("button");
@@ -101,6 +105,5 @@ btnSave.addEventListener("click", function () {
 
 }
 }
-
 });
   
