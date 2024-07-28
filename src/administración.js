@@ -21,7 +21,7 @@ if (tipo==="tarea") {
     const btnEliminar = document.createElement("button");
     const btnEditar = document.createElement("button");
 
-    etiquetaP.innerHTML = texto+ " " +prioridad;;
+    etiquetaP.innerHTML = texto+ " " +prioridad;
     cajaTareas.appendChild(etiquetaP);
 
     btnEliminar.innerHTML = "Eliminar";

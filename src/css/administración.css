@@ -1,0 +1,31 @@
+h1{
+    text-align: center;
+}
+.gestión{
+    display: grid;
+    grid-template-columns: 500px 250px 500px;
+    align-items: center;
+    text-align: center;
+}
+.tareas{
+    background-color: bisque;
+}
+.eventos{
+    background-color: cadetblue;
+}
+.input{
+    text-align: center;
+}
+.input1{
+    width: 400px;
+    height: 30px;
+}
+
+.input2{
+    width: 400px;
+    height: 30px; 
+}
+
+.divBotones{
+    text-align: center;
+}

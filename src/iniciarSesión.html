@@ -4,25 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar sesión</title>
+
+<link rel="stylesheet" href="/Proyecto-2-FWD/src/css/iniciarSesión.css">
 </head>
 <body>
+<div class="fondoInciarSesión">
 
-    <h1>Iniciar sesión</h1>
-
-    <p>Usuario</p>
-    <input id="usuarioRegistrado" type="text"> 
-
-    <p>Contraseña</p>
-    <input id="contraseñaRegistrada" type="text">
-    
-    <br><br><br>
-
-    <button id="ingresar">Ingresar</button>
-
+    <div class="divUsuario">
+        <input type="text" class="inputIniciarSesión" id="usuarioRegistrado" placeholder="Usuario">
+        
+      </div>
+<br>
+      <div class="divContraseña">
+        <input type="text" class="inputIniciarSesión" id="contraseñaRegistrada" placeholder="Contraseña">
+      
+      </div>
 
 
+    <br>
+<div class="divBtn">
+    <button class="btnIniciarSesión" id="ingresar">Iniciar sesión</button>
+</div>
 
 
+
+</div>
 <script src="/Proyecto-2-FWD/src/iniciarSesión.js"></script>
 </body>
 </html>
