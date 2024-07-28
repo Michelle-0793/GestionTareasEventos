@@ -1,0 +1,51 @@
+body{
+    margin: 0px;
+    background-image: url(/Proyecto-2-FWD/src/img/fondo-registrarse.jpg);
+ background-size: cover;
+ background-repeat: no-repeat;
+}
+
+.registrarse{
+    display: grid;
+    grid-template-columns: 605px 675px;
+}
+
+.inputRegistrer{
+    height:add(5rem, input-height-border);
+    line-height:1.25;
+    padding:3rem;
+    padding-top:1.625rem;
+    padding-block:.625rem;
+    height:50px;
+    width: 500px;
+    transform:scale(.85) translateY(-.5rem) translateX(.15rem);
+    color:gray-300;
+    transition: opacity .1s ease-in-out, transform .1s ease-in-out;
+    font-size: 16px;
+    border-radius: 50px;
+    border: transparent;
+    background-color: rgba(202, 202, 202, 0.313);
+    
+}
+
+.btnRegistrarse{
+    height:50px;
+    width: 150px;
+    border-radius: 50px;
+text-align: center;
+font-size: 16px;
+background-color: #181E40;
+color: rgb(255, 255, 255);
+border: transparent;
+}
+
+.cajaRegistrarse{
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.divbtnRegistrarse{
+    text-align: center;
+}
