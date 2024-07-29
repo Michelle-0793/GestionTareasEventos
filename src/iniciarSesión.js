@@ -6,7 +6,7 @@ const botonIngresar = document.getElementById("ingresar");
 
 
 botonIngresar.addEventListener("click", function () {
-let autenticado = false;
+let usuarioEncontrado = false;
 
 for (let index = 0; index < lista.length; index++) { 
     
@@ -16,14 +16,14 @@ for (let index = 0; index < lista.length; index++) {
   
 
   if (usuarioRegistrado==usuario.value  && contraseñaRegistrada==contraseña.value) {
-    autenticado = true;
+    usuarioEncontrado = true;
     window.location.href="administración.html";
     break;
     
   }
   }
 
-  if (!autenticado) {
+  if (!usuarioEncontrado) {
     usuario.value = "";
     contraseña.value = "";
   
