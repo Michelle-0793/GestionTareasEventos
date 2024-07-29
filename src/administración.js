@@ -7,16 +7,16 @@ const cajaEventos = document.getElementById("cajaEventos");
 
 
 btnGuardar.addEventListener("click", function () {
-const texto = inputTareaEvento.value;
-const fecha = fechaPrioridadInput.value;
-const tipo = select.value;
-const prioridad = fechaPrioridadInput.value
+        const texto = inputTareaEvento.value;
+        const fecha = fechaPrioridadInput.value;
+        const tipo = select.value;
+        const prioridad = fechaPrioridadInput.value
 
-if (tipo==="tarea") {
+ if (tipo==="tarea") {
     if (texto === "" && prioridad === "") {
     alert ("Debe ingresar una tarea o evento")  
     
-}else{
+ }else{
     const etiquetaP = document.createElement("p");
     const btnEliminar = document.createElement("button");
     const btnEditar = document.createElement("button");
@@ -30,16 +30,16 @@ if (tipo==="tarea") {
     btnEditar.innerHTML = "Editar";
     cajaTareas.appendChild(btnEditar);
 
-btnEliminar.addEventListener("click", function () {
+  btnEliminar.addEventListener("click", function () {
      etiquetaP.remove();
      btnEliminar.remove()
      btnEditar.remove();
      alert ("Se eliminó correctamente");
 });
 
-btnEditar.addEventListener("click", function () {
+  btnEditar.addEventListener("click", function () {
        const inputEdit = document.createElement("input");
-       const inputEditPrioridad =document.createElement("input");
+       const inputEditPrioridad = document.createElement("input");
        const btnSave = document.createElement("button");
 
     inputEdit.value = texto;

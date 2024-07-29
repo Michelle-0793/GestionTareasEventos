@@ -54,15 +54,18 @@ h1{
     font-family: sans-serif;
    src: url(/Proyecto-2-FWD/src/font/AvenirLTStd-Black.otf);
     color: rgb(255, 255, 255);
-    text-align: center;
-    justify-content: left;
+    text-align:start;
+    
 }
 
 .optimice{
     font-family:sans-serif;
     src: url(/Proyecto-2-FWD/src/font/AvenirLTStd-Light.otf);
+    font-weight:lighter;
      color: rgb(255, 255, 255);
      text-align: center;
      justify-content: left; 
      font-size: 16px;
 }
+
+

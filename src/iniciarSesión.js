@@ -24,9 +24,9 @@ for (let index = 0; index < lista.length; index++) {
   }
 
   if (!usuarioEncontrado) {
+    alert("Su usuario y/o contraseña son inorrectos")
     usuario.value = "";
     contraseña.value = "";
   
 }
-alert("Usuario o contraseña incorrecto")
 });
