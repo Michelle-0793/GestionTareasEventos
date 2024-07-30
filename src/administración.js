@@ -54,18 +54,13 @@ btnEditar.addEventListener("click", function () {
 });
 }
 
-//Para eliminar
+//Para eliminar tareas
 function eliminarElemento(item, opción) {
-   let lista = JSON.parse(localStorage.getItem(opción))  || [];
-   let nuevaLista= [];
+   let lista = JSON.parse(localStorage.getItem("tarea" || "evento"))  || [];
+   let nuevaLista=lista.filter(texto => texto != etiquetaP.textContent)
 
-    for (let index = 0; index < lista.length; index++) {
-    
-    if (lista[index].texto === item.texto && lista[index].fechaPrioridad === item.fechaPrioridad) {
-        nuevaLista.push(lista[index]);
-    }
-}
-localStorage.setItem(opción, JSON.stringify(nuevaLista)); //Para que la lista actualizada se guarde en el local
+ localStorage.setItem("tareas", JSON.stringify(nuevaLista)); //Para que la lista actualizada se guarde en el local
+ localStorage.setItem("eventos", JSON.stringify(nuevaLista));
 }
 
 //Para editar
@@ -89,7 +84,7 @@ function editarElemento(etiquetaP, item, opción) {
     
     etiquetaP.innerHTML = nuevoTexto+ " " +nuevaFechaPrioridad;
     actualizarElemento(item, opción, nuevoTexto, nuevaFechaPrioridad)
- });
+ })
 }
 //Para que se actualice en el local
 function actualizarElemento(item, opción, nuevoTexto, nuevaFechaPrioridad) {

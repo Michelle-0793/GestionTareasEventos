@@ -14,34 +14,37 @@
 
 <div class="input">
 <input class="input1" id="inputTareaEvento" type="text" placeholder="Ingrese una tarea o evento">
-<br><br><br>
+<br><br>
 <input class="input2" id="fechaPrioridadInput" type="text" placeholder="Ingrese prioridad o fecha">
 </div>
 
-<br><br>
+<br>
 
 <div class="divBotones">
-<button id="btnGuardar">Guardar</button>
 
-<select name="select" id="select">
-    <option value="" disabled selected> Seleccione</option>
-    <option value="tarea">Tarea</option>
-    <option value="evento">Evento</option>
-</select>
+    <select class="btnSelect" name="select" id="select">
+        <option value="" disabled selected> Seleccione una opción</option>
+        <option value="tarea">Tarea</option>
+        <option value="evento">Evento</option>
+    </select>
+    <br><br>
+<button class="btnGuardar" id="btnGuardar">Guardar</button>
+
+
 </div>
 
 <br><br><br>
-
+<div class="divTareasEventos">
    <div class="tareas" id="cajaTareas">
    <h2>TAREAS</h2>
    </div>
 
-   <div></div>
+ <div class="divMedio"></div>
 
    <div class="eventos" id="cajaEventos">
    <h2>EVENTOS</h2>
    </div>
-
+</div>
 <script src="/Proyecto-2-FWD/src/administración.js"></script>
 </body>
 </html>

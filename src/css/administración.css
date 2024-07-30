@@ -1,30 +1,92 @@
 h1{
     text-align: center;
 }
-.gestión{
+.divTareasEventos{
+    max-width: 800px;
     display: grid;
-    grid-template-columns: 500px 250px 500px;
-    align-items: center;
+    grid-template-columns: 400px 100px 400px;
+    margin-left: 180px; 
+    margin-right: 180px;
     text-align: center;
+
 }
+
 .tareas{
-    background-color: bisque;
+    box-sizing: border-box;   
+    background-color:#ffffff;
+    box-shadow: 0 20px 40px -5px rgba(80, 92, 103, 0.24);
+    justify-content: center;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .eventos{
-    background-color: cadetblue;
+    box-sizing: border-box;   
+    background-color:#ffffff;
+    box-shadow: 0 20px 40px -5px rgba(80, 92, 103, 0.24);
+    justify-content: center;
+    border-radius: 20px;
 }
 .input{
     text-align: center;
 }
 .input1{
-    width: 400px;
-    height: 30px;
+
+        height:add(5rem, input-height-border);
+        line-height:1.25;
+        padding:3rem;
+        padding-top:1.625rem;
+        padding-block:.625rem;
+        height:50px;
+        width: 500px;
+        transform:scale(.85) translateY(-.5rem) translateX(.15rem);
+        color:gray-300;
+        transition: opacity .1s ease-in-out, transform .1s ease-in-out;
+        font-size: 16px;
+        border-radius: 50px;
+        border: transparent;
+        background-color: rgba(202, 202, 202, 0.313);    
 }
 
 .input2{
-    width: 400px;
-    height: 30px; 
+    height:add(5rem, input-height-border);
+    line-height:1.25;
+    padding:3rem;
+    padding-top:1.625rem;
+    padding-block:.625rem;
+    height:50px;
+    width: 500px;
+    transform:scale(.85) translateY(-.5rem) translateX(.15rem);
+    color:gray-300;
+    transition: opacity .1s ease-in-out, transform .1s ease-in-out;
+    font-size: 16px;
+    border-radius: 50px;
+    border: transparent;
+    background-color: rgba(202, 202, 202, 0.313);  
 }
+
+.btnGuardar{
+    height:50px;
+    width: 150px;
+    border-radius: 50px;
+text-align: center;
+font-size: 16px;
+background-color: #181E40;
+color: rgb(255, 255, 255);
+border: transparent;  
+}
+
+.btnSelect{
+    height:30px;
+    width: 200px;
+    border-radius: 50px;
+text-align: center;
+font-size: 16px;
+background-color: #EF5484;
+color: rgb(255, 255, 255);
+border: transparent; 
+}
+
 
 .divBotones{
     text-align: center;
