@@ -1,5 +1,13 @@
 h1{
     text-align: center;
+    color: #181E40;
+    font-family: sans-serif;
+    src: url(/Proyecto-2-FWD/src/font/AvenirLTStd-Black.otf);
+}
+
+h2{
+    font-family: sans-serif;
+    src:url(/Proyecto-2-FWD/src/font/AvenirLTStd-Light.otf)
 }
 .divTareasEventos{
     max-width: 800px;

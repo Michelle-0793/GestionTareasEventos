@@ -33,7 +33,11 @@ function agregarElemento(caja, item, opción) {
     const btnEliminar = document.createElement("button");
     const btnEditar = document.createElement("button");
 
-    etiquetaP.innerHTML = item.texto+ " " +item.fechaPrioridad;
+    
+
+    console.log(item);
+
+    etiquetaP.innerHTML = item.texto+ " " +item.fecha;
     caja.appendChild(etiquetaP);
 
     btnEliminar.innerHTML = "Eliminar";
@@ -70,7 +74,9 @@ function editarElemento(etiquetaP, item, opción) {
     const btnSave = document.createElement("button");
 
  inputEdit.value = item.texto;
- inputEditPrioridad.value = item.fechaPrioridad;
+
+ 
+ inputEditPrioridad.value = item.fecha;
  etiquetaP.innerHTML ="";
  etiquetaP.appendChild(inputEdit);
  etiquetaP.appendChild(inputEditPrioridad);
@@ -84,12 +90,12 @@ function editarElemento(etiquetaP, item, opción) {
     
     etiquetaP.innerHTML = nuevoTexto+ " " +nuevaFechaPrioridad;
     actualizarElemento(item, opción, nuevoTexto, nuevaFechaPrioridad)
- })
-}
+ });
+
 //Para que se actualice en el local
 function actualizarElemento(item, opción, nuevoTexto, nuevaFechaPrioridad) {
 
-    let lista = JSON.parse(localStorage.getItem("tarea" || "evento"))  || [];
+    let lista = JSON.parse(localStorage.getItem(opción))  || [];
 
     for (let index = 0; index < lista.length; index++) {
     
@@ -102,7 +108,7 @@ function actualizarElemento(item, opción, nuevoTexto, nuevaFechaPrioridad) {
 }
 localStorage.setItem(opción, JSON.stringify(lista)); //Para que la lista actualizada se guarde en el local
 }
-
+}
 //Para Guardar
 btnGuardar.addEventListener("click", function () {
     const texto1 = inputTareaEvento.value;
@@ -115,7 +121,7 @@ if (texto1 === "" && texto2 === "") { //otro if para que lance una alerta cuando
 alert ("Debe ingresar una tarea o evento");
 
 }else{
-    const tarea= {texto:texto1, prioridad:texto2};
+    const tarea= {texto:texto1, fecha:texto2};
     agregarElemento(cajaTareas, tarea, "tareas");
 
     let tareas = JSON.parse(localStorage.getItem("tareas")) || [];
@@ -163,7 +169,7 @@ btnGuardar.addEventListener("click", function () {
     alert ("Debe ingresar una tarea o evento")  
     
  }else{
-    const etiquetaP = document.createElement("p")
+    const etiquetaP = document.createElement("p");
     const btnEliminar = document.createElement("button");
     const btnEditar = document.createElement("button");
 
@@ -178,7 +184,7 @@ btnGuardar.addEventListener("click", function () {
 
   btnEliminar.addEventListener("click", function () {
      etiquetaP.remove();
-     btnEliminar.remove()
+     btnEliminar.remove();
      btnEditar.remove();
      alert ("Se eliminó correctamente");
 });
