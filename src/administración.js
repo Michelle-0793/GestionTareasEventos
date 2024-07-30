@@ -88,12 +88,16 @@ function editarElemento(etiquetaP, item, opción) {
 }
 //Para que se actualice en el local
 function actualizarElemento(item, opción, nuevoTexto, nuevaFechaPrioridad) {
-    let lista = JSON.parse(localStorage.getItem(opción))  || [];
+
+    let lista = JSON.parse(localStorage.getItem("tarea" || "evento"))  || [];
 
     for (let index = 0; index < lista.length; index++) {
     
     if (lista[index].texto === item.texto && lista[index].fechaPrioridad === item.fechaPrioridad) {
-        lista.push(lista[item]);
+     //necesito que me actualice con lo nuevo que escribí   
+        lista[index].texto = nuevoTexto; 
+        lista[index].texto = nuevaFechaPrioridad;
+        break; 
     }
 }
 localStorage.setItem(opción, JSON.stringify(lista)); //Para que la lista actualizada se guarde en el local
