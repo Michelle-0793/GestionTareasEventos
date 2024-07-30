@@ -6,22 +6,163 @@ const cajaTareas = document.getElementById("cajaTareas");
 const cajaEventos = document.getElementById("cajaEventos");
 
 
-btnGuardar.addEventListener("click", function () {
-        const texto = inputTareaEvento.value;
-        const fecha = fechaPrioridadInput.value;
-        const tipo = select.value;
-        const prioridad = fechaPrioridadInput.value
+//1 Cargar los datos, implemento el window.onload para que se ejecute el código después de que
+// cargue la página
 
- if (tipo==="tarea") {
-    if (texto === "" && prioridad === "") {
-    alert ("Debe ingresar una tarea o evento")  
+window.onload = function () {
+    const tareas = JSON.parse(localStorage.getItem("tareas")) || [];
+    const eventos = JSON.parse(localStorage.getItem("eventos")) || [];
+
+
+for (let index = 0; index < tareas.length; index++) {
+agregarElemento(cajaTareas, tareas[index], "tarea");  
+}
+for (let index = 0; index < eventos.length; index++) {
+    agregarElemento(cajaEventos, eventos[index], "evento");
+}
+};
+
+//Aquí voy a agregar elementos a la página
+
+function agregarElemento(caja, item, opción) {
     
- }else{
-    const etiquetaP = document.createElement("p");
+    const etiquetaP = document.createElement("p")
     const btnEliminar = document.createElement("button");
     const btnEditar = document.createElement("button");
 
-    etiquetaP.innerHTML = texto+ " " +prioridad;
+    etiquetaP.innerHTML = texto1+ " " +texto2;
+    caja.appendChild(etiquetaP);
+
+    btnEliminar.innerHTML = "Eliminar";
+    caja.appendChild(btnEliminar);
+
+    btnEditar.innerHTML = "Editar";
+    caja.appendChild(btnEditar);
+
+  btnEliminar.addEventListener("click", function () {
+     
+     etiquetaP.remove();
+     btnEliminar.remove()
+     btnEditar.remove();
+     alert ("Se eliminó correctamente");
+});
+btnEditar.addEventListener("click", function () {
+    editarElemento(etiquetaP, item, opción);
+});
+}
+
+//Para eliminar
+function eliminarElemento(item, opción) {
+    let lista = JSON.parse(localStorage.getItem(opción))  || [];
+   let nuevaLista= []
+    for (let index = 0; index < lista.length; index++) {
+    
+    if (lista[index].texto1 === item.texto1 && lista[index].texto2 === item.texto2) {
+        nuevaLista.push(lista[index]);
+    }
+}
+localStorage.setItem(opción, JSON.stringify(nuevaLista)); //Para que la lista actualizada se guarde en el local
+}
+
+//Para editar
+function editarElemento(etiquetaP, item, opción) {
+    const inputEdit = document.createElement("input");
+    const inputEditPrioridad = document.createElement("input");
+    const btnSave = document.createElement("button");
+
+ inputEdit.value = texto1;
+ inputEditPrioridad.value = texto2;
+ etiquetaP.innerHTML ="";
+ etiquetaP.appendChild(inputEdit);
+ etiquetaP.appendChild(inputEditPrioridad);
+
+ btnSave.innerHTML = "Guardar";
+ etiquetaP.appendChild(btnSave);
+
+ btnSave.addEventListener("click", function () {
+    const nuevoTexto = inputEdit.value;
+    const nuevaFechaPrioridad = inputEditPrioridad.value;
+    
+    etiquetaP.innerHTML = nuevoTexto+ " " +nuevaFechaPrioridad;
+    actualizarElemento(item, opción, nuevoTexto, nuevaFechaPrioridad)
+ });
+}
+//Para que se actualice en el local
+function actualizarElemento(item, opción, nuevoTexto, nuevaFechaPrioridad) {
+    let lista = JSON.parse(localStorage.getItem(opción))  || [];
+
+    for (let index = 0; index < lista.length; index++) {
+    
+    if (lista[index].texto1 === item.texto1 && lista[index].texto2 === item.texto2) {
+        lista.push(lista[index]);
+    }
+}
+localStorage.setItem(opción, JSON.stringify(lista)); //Para que la lista actualizada se guarde en el local
+}
+
+//Para Guardar
+btnGuardar.addEventListener("click", function () {
+    const texto1 = inputTareaEvento.value;
+    const texto2 = fechaPrioridadInput.value;
+    const opción = select.value;
+
+//Un if papá para cuando seleccione una de las opciones
+if (opción==="tarea") {
+if (texto1 === "" && texto2 === "") { //otro if para que lance una alerta cuando algún espacio está en blanco
+alert ("Debe ingresar una tarea o evento");
+
+}else{
+    const tarea= {texto:texto1, prioridad:texto2};
+    agregarElemento(cajaTareas, tarea, "tareas");
+
+    let tareas = JSON.parse(localStorage.getItem("tareas")) || [];
+    tareas.push(tarea);
+    localStorage.setItem("tareas", JSON.stringify(tareas));
+
+    //para que me limpie los inputs
+    inputTareaEvento.value = "";
+    fechaPrioridadInput.value ="";
+}
+//aplico un else del if "papá", para decir que si la opción no es tarea, por defecto lo que se 
+//escogió es un evento. Apliqué la misma logica (copy and page), y los appendChild los hice a 
+//la caja tareas
+}else{
+    if (texto1 === "" && texto2 === "") {
+        alert ("Debe ingresar una tarea o evento");  
+}else{
+    const evento= {texto:texto1, fecha:texto2};
+    agregarElemento(cajaEventos, evento, "eventos");
+
+    let eventos = JSON.parse(localStorage.getItem("tareas")) || [];
+    eventos.push(tarea);
+    localStorage.setItem("tareas", JSON.stringify(eventos));
+
+    //para que me limpie los inputs
+    inputTareaEvento.value = "";
+    fechaPrioridadInput.value ="";
+}
+}
+});
+
+
+/*
+//Evento para el btón guardar (dentro de él van todo)
+btnGuardar.addEventListener("click", function () {
+        const texto1 = inputTareaEvento.value;
+        const texto2 = fechaPrioridadInput.value;
+        const opción = select.value;
+
+//Un if papá para cuando seleccione una de las opciones
+ if (opción==="tarea") {
+    if (texto1 === "" && texto2 === "") { //otro if para que lance una alerta cuando algún espacio está en blanco
+    alert ("Debe ingresar una tarea o evento")  
+    
+ }else{
+    const etiquetaP = document.createElement("p")
+    const btnEliminar = document.createElement("button");
+    const btnEditar = document.createElement("button");
+
+    etiquetaP.innerHTML = texto1+ " " +texto2;
     cajaTareas.appendChild(etiquetaP);
 
     btnEliminar.innerHTML = "Eliminar";
@@ -42,8 +183,8 @@ btnGuardar.addEventListener("click", function () {
        const inputEditPrioridad = document.createElement("input");
        const btnSave = document.createElement("button");
 
-    inputEdit.value = texto;
-    inputEditPrioridad.value = prioridad;
+    inputEdit.value = texto1;
+    inputEditPrioridad.value = texto2;
     etiquetaP.innerHTML ="";
     etiquetaP.appendChild(inputEdit);
     etiquetaP.appendChild(inputEditPrioridad);
@@ -57,10 +198,12 @@ btnGuardar.addEventListener("click", function () {
 });
 
 }
-
+//aplico un else del if "papá", para decir que si la opción no es tarea, por defecto lo que se 
+//escogió es un evento. Apliqué la misma logica (copy and page), y los appendChild los hice a 
+//la caja tareas
 }else{ 
 
-    if (texto === "" || fecha ==="") {
+    if (texto1 === "" || texto2 ==="") {
         alert ("Debe ingresar una tarea o evento") 
     } else {
     const etiquetaP = document.createElement("p");
@@ -68,7 +211,7 @@ btnGuardar.addEventListener("click", function () {
     const btnEditar = document.createElement("button");
 
 
-    etiquetaP.innerHTML = texto+ " " +fecha;
+    etiquetaP.innerHTML = texto1+ " " +texto2;
     cajaEventos.appendChild(etiquetaP);
 
     btnEliminar.innerHTML = "Eliminar";
@@ -89,8 +232,8 @@ btnEditar.addEventListener("click", function () {
     const inputEditFecha = document.createElement("input");
     const btnSave = document.createElement("button");
 
-    inputEdit.value = texto;
-    inputEditFecha.value = fecha;
+    inputEdit.value = texto1;
+    inputEditFecha.value = texto2;
     etiquetaP.innerHTML ="";
     etiquetaP.appendChild(inputEdit);
     etiquetaP.appendChild(inputEditFecha);
@@ -106,4 +249,4 @@ btnSave.addEventListener("click", function () {
 }
 }
 });
-  
+*/
