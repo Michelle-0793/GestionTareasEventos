@@ -6,8 +6,11 @@ const cajaTareas = document.getElementById("cajaTareas");
 const cajaEventos = document.getElementById("cajaEventos");
 
 
+
+//INTENTO 1 con local
 //1 Cargar los datos, implemento el window.onload para que se ejecute el código después de que
 // cargue la página
+
 
 window.onload = function () {
     const tareas = JSON.parse(localStorage.getItem("tareas")) || [];
@@ -30,7 +33,7 @@ function agregarElemento(caja, item, opción) {
     const btnEliminar = document.createElement("button");
     const btnEditar = document.createElement("button");
 
-    etiquetaP.innerHTML = texto1+ " " +texto2;
+    etiquetaP.innerHTML = item.texto+ " " +item.fechaPrioridad;
     caja.appendChild(etiquetaP);
 
     btnEliminar.innerHTML = "Eliminar";
@@ -40,9 +43,9 @@ function agregarElemento(caja, item, opción) {
     caja.appendChild(btnEditar);
 
   btnEliminar.addEventListener("click", function () {
-     
+     eliminarElemento(item, opción);
      etiquetaP.remove();
-     btnEliminar.remove()
+     btnEliminar.remove();
      btnEditar.remove();
      alert ("Se eliminó correctamente");
 });
@@ -53,11 +56,12 @@ btnEditar.addEventListener("click", function () {
 
 //Para eliminar
 function eliminarElemento(item, opción) {
-    let lista = JSON.parse(localStorage.getItem(opción))  || [];
-   let nuevaLista= []
+   let lista = JSON.parse(localStorage.getItem(opción))  || [];
+   let nuevaLista= [];
+
     for (let index = 0; index < lista.length; index++) {
     
-    if (lista[index].texto1 === item.texto1 && lista[index].texto2 === item.texto2) {
+    if (lista[index].texto === item.texto && lista[index].fechaPrioridad === item.fechaPrioridad) {
         nuevaLista.push(lista[index]);
     }
 }
@@ -70,8 +74,8 @@ function editarElemento(etiquetaP, item, opción) {
     const inputEditPrioridad = document.createElement("input");
     const btnSave = document.createElement("button");
 
- inputEdit.value = texto1;
- inputEditPrioridad.value = texto2;
+ inputEdit.value = item.texto;
+ inputEditPrioridad.value = item.fechaPrioridad;
  etiquetaP.innerHTML ="";
  etiquetaP.appendChild(inputEdit);
  etiquetaP.appendChild(inputEditPrioridad);
@@ -93,8 +97,8 @@ function actualizarElemento(item, opción, nuevoTexto, nuevaFechaPrioridad) {
 
     for (let index = 0; index < lista.length; index++) {
     
-    if (lista[index].texto1 === item.texto1 && lista[index].texto2 === item.texto2) {
-        lista.push(lista[index]);
+    if (lista[index].texto === item.texto && lista[index].fechaPrioridad === item.fechaPrioridad) {
+        lista.push(lista[item]);
     }
 }
 localStorage.setItem(opción, JSON.stringify(lista)); //Para que la lista actualizada se guarde en el local
@@ -133,9 +137,9 @@ alert ("Debe ingresar una tarea o evento");
     const evento= {texto:texto1, fecha:texto2};
     agregarElemento(cajaEventos, evento, "eventos");
 
-    let eventos = JSON.parse(localStorage.getItem("tareas")) || [];
-    eventos.push(tarea);
-    localStorage.setItem("tareas", JSON.stringify(eventos));
+    let eventos = JSON.parse(localStorage.getItem("eventos")) || [];
+    eventos.push(evento);
+    localStorage.setItem("eventos", JSON.stringify(eventos));
 
     //para que me limpie los inputs
     inputTareaEvento.value = "";
@@ -145,6 +149,8 @@ alert ("Debe ingresar una tarea o evento");
 });
 
 
+
+//FUNCIONABILIDAD CON LOCAL STORAGE
 /*
 //Evento para el btón guardar (dentro de él van todo)
 btnGuardar.addEventListener("click", function () {
