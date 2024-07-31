@@ -1,7 +1,7 @@
 body{
     margin: 0px;
-    background-image: url(/Proyecto-2-FWD/src/img/fondo-registrarse.jpg);
- background-size: contain;
+    background-image: url(/Proyecto-2-FWD/src/img/REGISTRO-02.jpg);
+ background-size: cover;
  background-repeat: no-repeat;
 }
 .logo{
@@ -9,7 +9,47 @@ body{
     height: 65px;
 }
 
+.gestión{
+    font-family: sans-serif;
+    src:url(/Proyecto-2-FWD/src/font/AvenirLTStd-Black.otf);
+    color: white;
+    font-size: 30px;
+}
+.header{
+    display: grid;
+    grid-template-columns: 150px 900px 144px;
+    background-color: #20243F;
+    width: auto;
+    height: 110px;
 
+}
+.btnSesión{
+    height: 35px;
+    width: 140px;
+    border-radius: 50px;
+text-align: center;
+font-size: 16px;
+background-color: #EF5484;
+color: rgb(255, 255, 255);
+border: transparent;
+}
+.divLogo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.divGestión{
+    display: flex;
+    align-items: center;
+
+}
+.divSesión{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
 .registrarse{
     display: grid;
     grid-template-columns: 605px 675px;
@@ -43,12 +83,19 @@ background-color: #181E40;
 color: rgb(255, 255, 255);
 border: transparent;
 }
-
+.container{
+    display: grid;
+    grid-template-columns: 100px 600x 100px;
+}
 .cajaRegistrarse{
+    background-color: rgb(255, 255, 255);
     align-items: center;
     align-content: center;
     text-align: center;
     margin-top: 100px;
+    border: aqua;
+    border-style: solid;
+    border-width: 2px;
 }
 
 .divbtnRegistrarse{

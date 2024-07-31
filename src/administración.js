@@ -1,22 +1,28 @@
 const inputTareaEvento = document.getElementById ("inputTareaEvento");
+
 const fechaPrioridadInput = document.getElementById("fechaPrioridadInput");
+
 const btnGuardar = document.getElementById("btnGuardar");
+
 const select = document.getElementById("select");
+
 const cajaTareas = document.getElementById("cajaTareas");
+
 const cajaEventos = document.getElementById("cajaEventos");
 
 
-
-//INTENTO 1 con local
 //1 Cargar los datos, implemento el window.onload para que se ejecute el código después de que
 // cargue la página
 
 
 window.onload = function () {
+
     const tareas = JSON.parse(localStorage.getItem("tareas")) || [];
+
     const eventos = JSON.parse(localStorage.getItem("eventos")) || [];
    
 tareas.forEach(tarea => agregarElemento(cajaTareas, tarea, "tareas"));
+
 eventos.forEach(evento => agregarElemento(cajaEventos, evento, "eventos"));
     
 };
@@ -38,7 +44,6 @@ function agregarElemento(caja, item, opción) {
     const btnEditar = document.createElement("button");
 
     
-
     etiquetaP.innerHTML = item.texto+ " " +item.fecha;
     caja.appendChild(etiquetaP);
 
@@ -53,8 +58,11 @@ function agregarElemento(caja, item, opción) {
      etiquetaP.remove();
      btnEliminar.remove();
      btnEditar.remove();
+
      alert ("Se eliminó correctamente");
 });
+
+
 btnEditar.addEventListener("click", function () {
     editarElemento(etiquetaP, item, opción);
 });
@@ -95,6 +103,7 @@ actualizarElemento(item, opción, nuevoTexto, nuevaFecha)
     etiquetaP.textContent = nuevoTexto+ " " +nuevaFecha;
   
  });
+
 }
 
 //Para que se actualice en el local
@@ -105,7 +114,7 @@ function actualizarElemento(item, opción, nuevoTexto, nuevaFecha) {
     for (let index = 0; index < lista.length; index++) {
     
     if (lista[index].texto === item.texto && lista[index].fecha === item.fecha) {
-     //necesito que me actualice con lo nuevo que escribí   
+    //necesito que me actualice con lo nuevo que escribí   
         lista[index].texto = nuevoTexto; 
         lista[index].fecha = nuevaFecha;
         break; 
@@ -127,6 +136,7 @@ alert ("Debe ingresar una tarea o evento");
 
 }else{
     const nuevaTareaEvento= {texto:texto1, fecha:texto2};
+
 if (opción === "tarea") {
         agregarElemento(cajaTareas, nuevaTareaEvento, "tareas");
 
@@ -138,6 +148,7 @@ if (opción === "tarea") {
 
 }else{
     agregarElemento(cajaEventos, nuevaTareaEvento, "eventos");
+
     let eventos = JSON.parse(localStorage.getItem("eventos")) || [];
     eventos.push(nuevaTareaEvento)
 
@@ -147,6 +158,7 @@ if (opción === "tarea") {
     inputTareaEvento.value = "";
     fechaPrioridadInput.value = "";
 }
+
 })
 
 //FUNCIONABILIDAD CON LOCAL STORAGE
