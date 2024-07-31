@@ -1,7 +1,7 @@
-const inputTareaEvento = document.getElementById("inputTareaEvento");
+const inputTareaEvento = document.getElementById ("inputTareaEvento");
 const fechaPrioridadInput = document.getElementById("fechaPrioridadInput");
 const btnGuardar = document.getElementById("btnGuardar");
-const select = document.getElementById("select")
+const select = document.getElementById("select");
 const cajaTareas = document.getElementById("cajaTareas");
 const cajaEventos = document.getElementById("cajaEventos");
 
@@ -15,15 +15,19 @@ const cajaEventos = document.getElementById("cajaEventos");
 window.onload = function () {
     const tareas = JSON.parse(localStorage.getItem("tareas")) || [];
     const eventos = JSON.parse(localStorage.getItem("eventos")) || [];
+   
+tareas.forEach(tarea => agregarElemento(cajaTareas, tarea, "tareas"));
+eventos.forEach(evento => agregarElemento(cajaEventos, evento, "eventos"));
+    
+};
 
-
+/*
 for (let index = 0; index < tareas.length; index++) {
-agregarElemento(cajaTareas, tareas[index], "tarea");  
+agregarElemento(cajaTareas, tareas[index], "tareas");  
 }
 for (let index = 0; index < eventos.length; index++) {
-    agregarElemento(cajaEventos, eventos[index], "evento");
-}
-};
+    agregarElemento(cajaEventos, eventos[index], "eventos");
+}*/
 
 //Aquí voy a agregar elementos a la página
 
@@ -34,8 +38,6 @@ function agregarElemento(caja, item, opción) {
     const btnEditar = document.createElement("button");
 
     
-
-    console.log(item);
 
     etiquetaP.innerHTML = item.texto+ " " +item.fecha;
     caja.appendChild(etiquetaP);
@@ -58,102 +60,94 @@ btnEditar.addEventListener("click", function () {
 });
 }
 
-//Para eliminar tareas
+//Para eliminar elementos del local storage
 function eliminarElemento(item, opción) {
-   let lista = JSON.parse(localStorage.getItem("tarea" || "evento"))  || [];
-   let nuevaLista=lista.filter(texto => texto != etiquetaP.textContent)
+   let lista = JSON.parse(localStorage.getItem(opción))  || []; //llamo la lista o la obtengo
+   // uso el filter para eliminar 
+   lista = lista.filter(tareaEvento => !(tareaEvento.texto === item.texto && tareaEvento.fecha === item.fecha));
 
- localStorage.setItem("tareas", JSON.stringify(nuevaLista)); //Para que la lista actualizada se guarde en el local
- localStorage.setItem("eventos", JSON.stringify(nuevaLista));
+ localStorage.setItem(opción, JSON.stringify(lista)); //Para que la lista actualizada se guarde en el local
+
 }
 
 //Para editar
 function editarElemento(etiquetaP, item, opción) {
     const inputEdit = document.createElement("input");
-    const inputEditPrioridad = document.createElement("input");
+    const inputEditFecha = document.createElement("input");
     const btnSave = document.createElement("button");
 
- inputEdit.value = item.texto;
+    inputEdit.value = item.texto;
+    inputEditFecha.value = item.fecha;
 
- 
- inputEditPrioridad.value = item.fecha;
- etiquetaP.innerHTML ="";
+ etiquetaP.innerHTML = "";
+
  etiquetaP.appendChild(inputEdit);
- etiquetaP.appendChild(inputEditPrioridad);
+ etiquetaP.appendChild(inputEditFecha);
 
  btnSave.innerHTML = "Guardar";
  etiquetaP.appendChild(btnSave);
 
  btnSave.addEventListener("click", function () {
-    const nuevoTexto = inputEdit.value;
-    const nuevaFechaPrioridad = inputEditPrioridad.value;
-    
-    etiquetaP.innerHTML = nuevoTexto+ " " +nuevaFechaPrioridad;
-    actualizarElemento(item, opción, nuevoTexto, nuevaFechaPrioridad)
+    const nuevoTexto = inputEdit.value.trim();
+    const nuevaFecha = inputEditFecha.value.trim();
+
+actualizarElemento(item, opción, nuevoTexto, nuevaFecha)
+    etiquetaP.textContent = nuevoTexto+ " " +nuevaFecha;
+  
  });
+}
 
 //Para que se actualice en el local
-function actualizarElemento(item, opción, nuevoTexto, nuevaFechaPrioridad) {
+function actualizarElemento(item, opción, nuevoTexto, nuevaFecha) {
 
     let lista = JSON.parse(localStorage.getItem(opción))  || [];
 
     for (let index = 0; index < lista.length; index++) {
     
-    if (lista[index].texto === item.texto && lista[index].fechaPrioridad === item.fechaPrioridad) {
+    if (lista[index].texto === item.texto && lista[index].fecha === item.fecha) {
      //necesito que me actualice con lo nuevo que escribí   
         lista[index].texto = nuevoTexto; 
-        lista[index].texto = nuevaFechaPrioridad;
+        lista[index].fecha = nuevaFecha;
         break; 
     }
 }
 localStorage.setItem(opción, JSON.stringify(lista)); //Para que la lista actualizada se guarde en el local
 }
-}
+
 //Para Guardar
 btnGuardar.addEventListener("click", function () {
-    const texto1 = inputTareaEvento.value;
-    const texto2 = fechaPrioridadInput.value;
+    const texto1 = inputTareaEvento.value.trim();
+    const texto2 = fechaPrioridadInput.value.trim();
     const opción = select.value;
 
 //Un if papá para cuando seleccione una de las opciones
-if (opción==="tarea") {
-if (texto1 === "" && texto2 === "") { //otro if para que lance una alerta cuando algún espacio está en blanco
+
+if (texto1 === "" || texto2 === "") { 
 alert ("Debe ingresar una tarea o evento");
 
 }else{
-    const tarea= {texto:texto1, fecha:texto2};
-    agregarElemento(cajaTareas, tarea, "tareas");
+    const nuevaTareaEvento= {texto:texto1, fecha:texto2};
+if (opción === "tarea") {
+        agregarElemento(cajaTareas, nuevaTareaEvento, "tareas");
 
     let tareas = JSON.parse(localStorage.getItem("tareas")) || [];
-    tareas.push(tarea);
+    tareas.push(nuevaTareaEvento);
+
     localStorage.setItem("tareas", JSON.stringify(tareas));
 
-    //para que me limpie los inputs
-    inputTareaEvento.value = "";
-    fechaPrioridadInput.value ="";
-}
-//aplico un else del if "papá", para decir que si la opción no es tarea, por defecto lo que se 
-//escogió es un evento. Apliqué la misma logica (copy and page), y los appendChild los hice a 
-//la caja tareas
-}else{
-    if (texto1 === "" && texto2 === "") {
-        alert ("Debe ingresar una tarea o evento");  
-}else{
-    const evento= {texto:texto1, fecha:texto2};
-    agregarElemento(cajaEventos, evento, "eventos");
 
+}else{
+    agregarElemento(cajaEventos, nuevaTareaEvento, "eventos");
     let eventos = JSON.parse(localStorage.getItem("eventos")) || [];
-    eventos.push(evento);
-    localStorage.setItem("eventos", JSON.stringify(eventos));
+    eventos.push(nuevaTareaEvento)
 
+    localStorage.setItem("eventos", JSON.stringify(eventos));
+}
     //para que me limpie los inputs
     inputTareaEvento.value = "";
-    fechaPrioridadInput.value ="";
+    fechaPrioridadInput.value = "";
 }
-}
-});
-
-
+})
 
 //FUNCIONABILIDAD CON LOCAL STORAGE
 /*
