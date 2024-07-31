@@ -1,8 +1,26 @@
 body{
     margin: 0px;
-    background-image: url(/Proyecto-2-FWD/src/img/fondo-iniciarSesión.jpg);
- background-size: cover;
+    background-image: url(/Proyecto-2-FWD/src/img/fondo-iniciarSesión\ 2-01.jpg);
+ background-size:cover;
  background-repeat: no-repeat;
+ width: auto;
+ min-height: 495px;
+}
+
+.iconoLogin{
+    width: auto;
+    height: 121px;
+    
+    
+
+}
+
+.divIconoLogin{
+    width: 431,76;;
+    height: 183.12px ;
+    margin-top: 90px;
+    margin-bottom: -250px;
+    text-align: center;
 }
 
 .inputIniciarSesión{
@@ -24,10 +42,11 @@ body{
     text-align: center;
 }
 
+
 .divUsuario{
     display: flex;
     justify-content: center;
-    margin-top: 250px;
+    margin-top: 230px;
 }
 
 .divContraseña{
