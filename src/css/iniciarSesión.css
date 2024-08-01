@@ -76,8 +76,8 @@ border: transparent;
     .divIconoLogin {
       display: flex;
       justify-content: center;
-      margin-top: 20px;
-      margin-bottom: 100px;
+      margin-top: 40px;
+      margin-bottom: -30px;
     
     }
     
@@ -88,9 +88,9 @@ border: transparent;
     .divUsuario, .divContraseña, .divBtn {
         margin-top: 5px;
     }
-}
+};
 
-@media (max-width: 200px) {
+@media (max-width: 900px) {
     .divIconoLogin {
         display: flex;
         align-items: center;
@@ -98,8 +98,33 @@ border: transparent;
 
     }
 
-
     .inputIniciarSesión {
-        width: 80%;
+        width: 170px;
+    }
+    .divUsuario{
+        margin-top: -80px;
+    }
+    .iconoLogin{
+        width: auto;
+        height: 70px;
+        margin-top: -60px;
+    }
+};
+
+@media (max-width: 1200px){
+    .divIconoLogin {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 80px;
+
+    }
+    .inputIniciarSesión {
+        width: 400px;
+    }
+    .iconoLogin{
+        width: auto;
+        height: 150px;
+        margin-top: -60px;
     }
 }

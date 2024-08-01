@@ -53,10 +53,6 @@ border: transparent;
     align-items: center;
 
 }
-.registrarse{
-    display: grid;
-    grid-template-columns: 605px 675px;
-}
 
 .inputRegistrer{
     height:add(5rem, input-height-border);
@@ -135,17 +131,15 @@ h1{
 
 @media (max-width: 600px) {
     .header {
-        display: grid;
-        grid-template-columns: 20px 30px;
-        height: 120px;
+
     }
 
-    .registrarse {
-        grid-template-columns: 1fr;
-    }
-
+    .logo{
+    width: auto;
+    height: 40px;
+}
     .inputRegistrer {
-        width: 300px;
+        width: 200px;
 
     }
 
@@ -156,23 +150,19 @@ h1{
     }
 }
 
-@media (max-width: 900px) {
-    .header {
-        display: flex;
-    }
+@media (max-width: 940px) {
 
-    .registrarse {
-        grid-template-columns: 1fr 1fr;
-    }
+
 
     .inputRegistrer {
-        width: 80%;
+        width:160px;
     }
 
     .cajaRegistrarse {
         width: 80%;
     }
+
     .gestión {
-        font-size: 20px;
+        font-size: 16px;
     }
 }
