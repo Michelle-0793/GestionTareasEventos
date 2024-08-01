@@ -130,3 +130,42 @@ h1{
 
 
 /* Media queries */
+/* Estilos para dispositivos móviles */
+@media (max-width: 600px) {
+    .header {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .registrarse {
+        grid-template-columns: 1fr;
+    }
+
+    .inputRegistrer {
+        width: 90%;
+    }
+
+    .cajaRegistrarse {
+        width: 90%;
+        margin-top: 20px;
+    }
+}
+
+/* Estilos para tabletas */
+@media (max-width: 900px) {
+    .header {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .registrarse {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .inputRegistrer {
+        width: 80%;
+    }
+
+    .cajaRegistrarse {
+        width: 80%;
+    }
+}

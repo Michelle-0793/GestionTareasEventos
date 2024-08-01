@@ -3,8 +3,8 @@ body{
     background-image: url(/Proyecto-2-FWD/src/img/fondo-iniciarSesión\ 2-01.jpg);
  background-size:cover;
  background-repeat: no-repeat;
- width: auto;
- min-height: 495px;
+ min-height: 100vh; /* Asegura que el fondo cubra al menos la altura del viewport */
+ width: 100%;
 }
 
 .iconoLogin{
@@ -68,4 +68,37 @@ border: transparent;
 .divBtn{
     display: flex;
     justify-content: center;
+}
+
+
+/*Media Queries*/
+@media (max-width: 600px) {
+    .divIconoLogin {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      margin-bottom: 100px;
+    
+    }
+    
+    .inputIniciarSesión {
+        width: 90%;
+    }
+
+    .divUsuario, .divContraseña, .divBtn {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 900px) {
+    .divIconoLogin {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+
+    }
+
+    .inputIniciarSesión {
+        width: 80%;
+    }
 }
