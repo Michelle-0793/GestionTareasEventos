@@ -72,7 +72,7 @@ border: transparent;
 
 
 /*Media Queries*/
-@media (max-width: 600px) {
+@media (max-width: 500px) {
     .divIconoLogin {
       display: flex;
       justify-content: center;
@@ -86,17 +86,18 @@ border: transparent;
     }
 
     .divUsuario, .divContraseña, .divBtn {
-        margin-top: 20px;
+        margin-top: 5px;
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 200px) {
     .divIconoLogin {
         display: flex;
         align-items: center;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
 
     }
+
 
     .inputIniciarSesión {
         width: 80%;

@@ -16,11 +16,12 @@ const cajaEventos = document.getElementById("cajaEventos");
 
 
 window.onload = function () {
-
+ // Obtengo tareas y eventos de localStorage o inicializar como un array vacío
     const tareas = JSON.parse(localStorage.getItem("tareas")) || [];
 
     const eventos = JSON.parse(localStorage.getItem("eventos")) || [];
-   
+
+// Agrego cada tarea y evento almacenado al DOM
 tareas.forEach(tarea => agregarElemento(cajaTareas, tarea, "tareas"));
 
 eventos.forEach(evento => agregarElemento(cajaEventos, evento, "eventos"));
@@ -32,7 +33,7 @@ eventos.forEach(evento => agregarElemento(cajaEventos, evento, "eventos"));
 
 function agregarElemento(caja, item, opción) {
     
-    const etiquetaP = document.createElement("p");
+    const etiquetaP = document.createElement("p"); //// Crear un elemento <p> para mostrar la tarea/evento
     etiquetaP.classList.add("tarea-evento"); //Añadí clases para dar estilo en CSS
 
     const btnEliminar = document.createElement("button");
@@ -41,18 +42,18 @@ function agregarElemento(caja, item, opción) {
     const btnEditar = document.createElement("button");
     btnEditar.classList.add("btnEditar");
     
-    etiquetaP.innerHTML = item.texto+ " " +item.fecha;
-    caja.appendChild(etiquetaP);
+    etiquetaP.innerHTML = item.texto+ " " +item.fecha; // Establezco el contenido del <p> con el texto y la fecha del item
+    caja.appendChild(etiquetaP);//Añado al contenedor
 
-    btnEliminar.innerHTML = "Eliminar";
-    caja.appendChild(btnEliminar);
+    btnEliminar.innerHTML = "Eliminar"; //// Establecer el texto del botón de eliminar
+    caja.appendChild(btnEliminar);//Añado al contenedor
 
-    btnEditar.innerHTML = "Editar";
-    caja.appendChild(btnEditar);
+    btnEditar.innerHTML = "Editar"; // Establecer el texto del botón de editar
+    caja.appendChild(btnEditar);//Añado al contenedor
 
   btnEliminar.addEventListener("click", function () {
-     eliminarElemento(item, opción);
-     etiquetaP.remove();
+     eliminarElemento(item, opción); //// Eliminar del localStorage
+     etiquetaP.remove(); //Estos tres los elimino del DOM
      btnEliminar.remove();
      btnEditar.remove();
 
@@ -61,23 +62,23 @@ function agregarElemento(caja, item, opción) {
 
 
 btnEditar.addEventListener("click", function () {
-    editarElemento(etiquetaP, item, opción);
+    editarElemento(etiquetaP, item, opción); //Llamo a la función de edición
 });
 }
 
 //Para eliminar elementos del local storage
 function eliminarElemento(item, opción) {
-   let lista = JSON.parse(localStorage.getItem(opción))  || []; //llamo la lista o la obtengo
-   // uso el filter para eliminar 
+   let lista = JSON.parse(localStorage.getItem(opción))  || []; //obtengo del localStorage o iniciar como una lista vacía
+   // uso el filter para eliminar el elmento que quiero
    lista = lista.filter(tareaEvento => !(tareaEvento.texto === item.texto && tareaEvento.fecha === item.fecha));
 
- localStorage.setItem(opción, JSON.stringify(lista)); //Para que la lista actualizada se guarde en el local
-
+ localStorage.setItem(opción, JSON.stringify(lista)); /// Guardar la lista actualizada en el localStorage
 }
+
 
 //Para editar
 function editarElemento(etiquetaP, item, opción) {
-    const inputEdit = document.createElement("input");
+    const inputEdit = document.createElement("input"); //// Crear campos de entrada para el nuevo  y fecha-prioridad
     inputEdit.classList.add("inputEdit"); //Añadí clases para dar estilo en CSS
 
     const inputEditFecha = document.createElement("input");
@@ -86,50 +87,53 @@ function editarElemento(etiquetaP, item, opción) {
     const btnSave = document.createElement("button");
     btnSave.classList.add("btnSave");
 
-    inputEdit.value = item.texto;
-    inputEditFecha.value = item.fecha;
+    inputEdit.value = item.texto; // Establecer el valor inicial del campo de texto con el texto actual del item
+    inputEditFecha.value = item.fecha;//lo mismo con la fecha
 
- etiquetaP.innerHTML = "";
+ etiquetaP.innerHTML = ""; // Limpio el contenido del <p> para mostrar los campos de edición
 
- etiquetaP.appendChild(inputEdit);
- etiquetaP.appendChild(inputEditFecha);
+ etiquetaP.appendChild(inputEdit); // Añadir el campo de texto al <p>
+ etiquetaP.appendChild(inputEditFecha);// Añadir el campo de fecha o prioridad al <p>
 
- btnSave.innerHTML = "Guardar";
- etiquetaP.appendChild(btnSave);
+ btnSave.innerHTML = "Guardar"; //Texto del botón guardar
+ etiquetaP.appendChild(btnSave); //y lo añado a la <p>
 
+ //Un evento para acualizar esos cambios
  btnSave.addEventListener("click", function () {
+    //obtengo los nuevos texto y fecha o prioridad de los campos de entrada
     const nuevoTexto = inputEdit.value.trim();
     const nuevaFecha = inputEditFecha.value.trim();
 
-actualizarElemento(item, opción, nuevoTexto, nuevaFecha)
-    etiquetaP.textContent = nuevoTexto+ " " +nuevaFecha;
+actualizarElemento(item, opción, nuevoTexto, nuevaFecha) //actualiza en el loca
+    etiquetaP.textContent = nuevoTexto+ " " +nuevaFecha; //actualiza la <p> 
   
  });
 
 }
 
-//Para que se actualice en el local
+//// Función para actualizar elementos en el localStorage
 function actualizarElemento(item, opción, nuevoTexto, nuevaFecha) {
 
-    let lista = JSON.parse(localStorage.getItem(opción))  || [];
+    let lista = JSON.parse(localStorage.getItem(opción))  || []; //obtengo del localStorage o iniciar como una lista vacía
 
+ // Encontrar y actualizar el elemento en la lista   
     for (let index = 0; index < lista.length; index++) {
     
     if (lista[index].texto === item.texto && lista[index].fecha === item.fecha) {
     //necesito que me actualice con lo nuevo que escribí   
-        lista[index].texto = nuevoTexto; 
-        lista[index].fecha = nuevaFecha;
-        break; 
+        lista[index].texto = nuevoTexto; //Actualiza el texto
+        lista[index].fecha = nuevaFecha; //Actualiza la fecha o la prioridad
+        break; //// Salir del bucle cuando el elemento se encontró y actualizó
     }
 }
 localStorage.setItem(opción, JSON.stringify(lista)); //Para que la lista actualizada se guarde en el local
 }
 
-//Para Guardar
+// Evento para añadir nuevos elementos
 btnAñadir.addEventListener("click", function () {
-    const texto1 = inputTareaEvento.value.trim();
+    const texto1 = inputTareaEvento.value.trim(); // Obtener y limpiar el valor de los campos
     const texto2 = fechaPrioridadInput.value.trim();
-    const opción = select.value;
+    const opción = select.value; // Obtener la opción seleccionada (tarea o evento)
 
 //Un if papá para cuando seleccione una de las opciones
 
@@ -137,15 +141,16 @@ if (texto1 === "" || texto2 === "") {
 alert ("Por favor, complete todos los campos");
 
 }else{
-    const nuevaTareaEvento= {texto:texto1, fecha:texto2};
+    const nuevaTareaEvento= {texto:texto1, fecha:texto2}; // Crear un nuevo objeto con el texto y la fecha o prioridad
+
 
 if (opción === "tarea") {
-        agregarElemento(cajaTareas, nuevaTareaEvento, "tareas");
+        agregarElemento(cajaTareas, nuevaTareaEvento, "tareas"); // Agregar la nueva tarea al DOM
 
-    let tareas = JSON.parse(localStorage.getItem("tareas")) || [];
-    tareas.push(nuevaTareaEvento);
+    let tareas = JSON.parse(localStorage.getItem("tareas")) || []; //obtengo del localStorage o iniciar como una lista vacía
+    tareas.push(nuevaTareaEvento); // Añadir la nueva tarea a la lista
 
-    localStorage.setItem("tareas", JSON.stringify(tareas));
+    localStorage.setItem("tareas", JSON.stringify(tareas)); // Guardar la lista actualizada en el localStorage
 
 
 }else{

@@ -220,3 +220,58 @@ text-align: center;
     margin-top: 5px;
     color: #656565;
 }
+
+
+@media (max-width: 600px) {
+    .header {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .divTareasEventos {
+        grid-template-columns: 1fr;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .tareas, .eventos {
+        width: 100%;
+        height: auto;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .input1, .input2 {
+        width: 90%;
+    }
+}
+
+@media (max-width: 900px) {
+    .logo{
+        margin-top: 30px;
+    }
+.header{
+    width: auto;
+    height: 160px;
+}
+.gestión{
+    font-size: 20px;
+}
+    .tareas {
+        width: 100%;
+        height: 300px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .eventos {
+        width: 100%;
+        height: 300px;
+        padding-left: 40px;
+        padding-right: 40px;
+        margin-top: 20px;
+    }
+
+    .input1, .input2 {
+        width: 80%;
+    }
+}

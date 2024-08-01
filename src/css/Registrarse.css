@@ -3,6 +3,8 @@ body{
     background-image: url(/Proyecto-2-FWD/src/img/REGISTRO-02.jpg);
  background-size: cover;
  background-repeat: no-repeat;
+ min-height: 100vh; /* Asegura que el fondo cubra al menos la altura del viewport */
+ width: 100%;
 }
 .logo{
     width: auto;
@@ -130,11 +132,12 @@ h1{
 
 
 /* Media queries */
-/* Estilos para dispositivos móviles */
+
 @media (max-width: 600px) {
     .header {
-        grid-template-columns: 1fr;
-        text-align: center;
+        display: grid;
+        grid-template-columns: 20px 30px;
+        height: 120px;
     }
 
     .registrarse {
@@ -142,19 +145,20 @@ h1{
     }
 
     .inputRegistrer {
-        width: 90%;
+        width: 300px;
+
     }
 
     .cajaRegistrarse {
         width: 90%;
-        margin-top: 20px;
+        margin-top: 50px;
+        width: 100px;
     }
 }
 
-/* Estilos para tabletas */
 @media (max-width: 900px) {
     .header {
-        grid-template-columns: 1fr 1fr;
+        display: flex;
     }
 
     .registrarse {
@@ -167,5 +171,8 @@ h1{
 
     .cajaRegistrarse {
         width: 80%;
+    }
+    .gestión {
+        font-size: 20px;
     }
 }
