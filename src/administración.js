@@ -27,7 +27,6 @@ tareas.forEach(tarea => agregarElemento(cajaTareas, tarea, "tareas"));
 
 eventos.forEach(evento => agregarElemento(cajaEventos, evento, "eventos"));
     
-};
 
 
 //AGREGAR ELEMENTOS A LA PÁGINA
@@ -121,7 +120,7 @@ actualizarElemento(item, opción, nuevoTexto, nuevaFecha) //actualiza en el loca
  });
 
 }
-
+};
 //ACTUALIZAR LOS ELEMENTOS EN EL LOCAL STORAGE
 function actualizarElemento(item, opción, nuevoTexto, nuevaFecha) {
 
