@@ -120,7 +120,7 @@ actualizarElemento(item, opción, nuevoTexto, nuevaFecha) //actualiza en el loca
  });
 
 }
-};
+
 //ACTUALIZAR LOS ELEMENTOS EN EL LOCAL STORAGE
 function actualizarElemento(item, opción, nuevoTexto, nuevaFecha) {
 
@@ -183,7 +183,7 @@ if (opción === "tarea") {
 
 })
 
-
+};
 
 
 /*FUNCIONABILIDAD SIN LOCAL STORAGE
