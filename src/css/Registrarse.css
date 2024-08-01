@@ -6,7 +6,7 @@ body{
 }
 .logo{
     width: auto;
-    height: 65px;
+    height: 60px;
 }
 
 .gestión{
@@ -20,7 +20,7 @@ body{
     grid-template-columns: 150px 900px 144px;
     background-color: #20243F;
     width: auto;
-    height: 110px;
+    height: 90px;
 
 }
 .btnSesión{
@@ -33,6 +33,7 @@ background-color: #EF5484;
 color: rgb(255, 255, 255);
 border: transparent;
 }
+
 .divLogo{
     display: flex;
     justify-content: center;
@@ -61,8 +62,8 @@ border: transparent;
     padding:3rem;
     padding-top:1.625rem;
     padding-block:.625rem;
-    height:50px;
-    width: 500px;
+    height:40px;
+    width: 400px;
     transform:scale(.85) translateY(-.5rem) translateX(.15rem);
     color:gray-300;
     transition: opacity .1s ease-in-out, transform .1s ease-in-out;
@@ -70,11 +71,12 @@ border: transparent;
     border-radius: 50px;
     border: transparent;
     background-color: rgba(202, 202, 202, 0.313);
+    text-align: center;
     
 }
 
 .btnRegistrarse{
-    height:50px;
+    height:40px;
     width: 150px;
     border-radius: 50px;
 text-align: center;
@@ -83,20 +85,25 @@ background-color: #181E40;
 color: rgb(255, 255, 255);
 border: transparent;
 }
+
 .container{
-    display: grid;
-    grid-template-columns: 100px 600x 100px;
+display: flex;
+justify-content: center;
 }
-.cajaRegistrarse{
-    background-color: rgb(255, 255, 255);
+
+.cajaRegistrarse{ 
+    background-color:#ffffff;
+    box-shadow: 0px 0px 29px -3px rgba(0,0,0,0.34);
     align-items: center;
     align-content: center;
     text-align: center;
-    margin-top: 100px;
-    border: aqua;
-    border-style: solid;
-    border-width: 2px;
-}
+    margin-top: 31px;
+    padding-top: 40px;
+    padding-bottom: 35px;
+    height: auto;
+    width: 550px;
+    border-radius: 20px;
+}   
 
 .divbtnRegistrarse{
     text-align: center;
@@ -122,3 +129,4 @@ h1{
 
 
 
+/* Media queries */

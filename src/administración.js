@@ -2,7 +2,7 @@ const inputTareaEvento = document.getElementById ("inputTareaEvento");
 
 const fechaPrioridadInput = document.getElementById("fechaPrioridadInput");
 
-const btnGuardar = document.getElementById("btnGuardar");
+const btnAñadir = document.getElementById("btnAñadir");
 
 const select = document.getElementById("select");
 
@@ -11,8 +11,8 @@ const cajaTareas = document.getElementById("cajaTareas");
 const cajaEventos = document.getElementById("cajaEventos");
 
 
-//1 Cargar los datos, implemento el window.onload para que se ejecute el código después de que
-// cargue la página
+//1 Cargar los datos, implemento el window.onload para que se ejecute el código después 
+// de que cargue la página
 
 
 window.onload = function () {
@@ -27,22 +27,19 @@ eventos.forEach(evento => agregarElemento(cajaEventos, evento, "eventos"));
     
 };
 
-/*
-for (let index = 0; index < tareas.length; index++) {
-agregarElemento(cajaTareas, tareas[index], "tareas");  
-}
-for (let index = 0; index < eventos.length; index++) {
-    agregarElemento(cajaEventos, eventos[index], "eventos");
-}*/
 
 //Aquí voy a agregar elementos a la página
 
 function agregarElemento(caja, item, opción) {
     
-    const etiquetaP = document.createElement("p")
-    const btnEliminar = document.createElement("button");
-    const btnEditar = document.createElement("button");
+    const etiquetaP = document.createElement("p");
+    etiquetaP.classList.add("tarea-evento"); //Añadí clases para dar estilo en CSS
 
+    const btnEliminar = document.createElement("button");
+    btnEliminar.classList.add("btnEliminar");
+
+    const btnEditar = document.createElement("button");
+    btnEditar.classList.add("btnEditar");
     
     etiquetaP.innerHTML = item.texto+ " " +item.fecha;
     caja.appendChild(etiquetaP);
@@ -81,8 +78,13 @@ function eliminarElemento(item, opción) {
 //Para editar
 function editarElemento(etiquetaP, item, opción) {
     const inputEdit = document.createElement("input");
+    inputEdit.classList.add("inputEdit"); //Añadí clases para dar estilo en CSS
+
     const inputEditFecha = document.createElement("input");
+    inputEditFecha.classList.add("inputEditFecha");
+
     const btnSave = document.createElement("button");
+    btnSave.classList.add("btnSave");
 
     inputEdit.value = item.texto;
     inputEditFecha.value = item.fecha;
@@ -124,7 +126,7 @@ localStorage.setItem(opción, JSON.stringify(lista)); //Para que la lista actual
 }
 
 //Para Guardar
-btnGuardar.addEventListener("click", function () {
+btnAñadir.addEventListener("click", function () {
     const texto1 = inputTareaEvento.value.trim();
     const texto2 = fechaPrioridadInput.value.trim();
     const opción = select.value;
@@ -132,7 +134,7 @@ btnGuardar.addEventListener("click", function () {
 //Un if papá para cuando seleccione una de las opciones
 
 if (texto1 === "" || texto2 === "") { 
-alert ("Debe ingresar una tarea o evento");
+alert ("Por favor, complete todos los campos");
 
 }else{
     const nuevaTareaEvento= {texto:texto1, fecha:texto2};

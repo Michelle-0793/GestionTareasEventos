@@ -1,13 +1,48 @@
-h1{
-    text-align: center;
-    color: #181E40;
+body{
+    margin: 0px;
+    background-color: #ffffff;
+ background-size: cover;
+ background-repeat: no-repeat;
+}
+.logo{
+    width: auto;
+    height: 60px;
+}
+
+.gestión{
     font-family: sans-serif;
-    src: url(/Proyecto-2-FWD/src/font/AvenirLTStd-Black.otf);
+    src:url(/Proyecto-2-FWD/src/font/AvenirLTStd-Black.otf);
+    color: white;
+    font-size: 30px;
+}
+.header{
+    display: grid;
+    grid-template-columns: 180px 900px;
+    background-color: #20243F;
+    width: auto;
+    height: 90px;
+
+}
+.divLogo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.divGestión{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    
+
 }
 
 h2{
     font-family: sans-serif;
-    src:url(/Proyecto-2-FWD/src/font/AvenirLTStd-Light.otf)
+    font-weight: bold;
+    src:url(/Proyecto-2-FWD/src/font/AvenirLTStd-Light.otf);
+    color: #181E40;
 }
 .divTareasEventos{
     max-width: 800px;
@@ -25,18 +60,25 @@ h2{
     box-shadow: 0 20px 40px -5px rgba(80, 92, 103, 0.24);
     justify-content: center;
     border-radius: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 60px;
+    padding-right: 60px;
+    width: auto;
+    height: 600px;
 }
 .eventos{
     box-sizing: border-box;   
-    background-color:#ffffff;
+    background-color:#f3edede2;
     box-shadow: 0 20px 40px -5px rgba(80, 92, 103, 0.24);
     justify-content: center;
     border-radius: 20px;
+    padding-left: 60px;
+    padding-right: 60px;
+    width: auto;
+    height: 600px;
 }
 .input{
     text-align: center;
+    margin-top: 50px;
 }
 .input1{
 
@@ -46,14 +88,15 @@ h2{
         padding-top:1.625rem;
         padding-block:.625rem;
         height:50px;
-        width: 500px;
+        width: 400px;
         transform:scale(.85) translateY(-.5rem) translateX(.15rem);
         color:gray-300;
         transition: opacity .1s ease-in-out, transform .1s ease-in-out;
         font-size: 16px;
         border-radius: 50px;
         border: transparent;
-        background-color: rgba(202, 202, 202, 0.313);    
+        background-color: rgba(202, 202, 202, 0.313);  
+        text-align: center;  
 }
 
 .input2{
@@ -63,19 +106,20 @@ h2{
     padding-top:1.625rem;
     padding-block:.625rem;
     height:50px;
-    width: 500px;
+    width: 400px;
     transform:scale(.85) translateY(-.5rem) translateX(.15rem);
     color:gray-300;
     transition: opacity .1s ease-in-out, transform .1s ease-in-out;
     font-size: 16px;
     border-radius: 50px;
     border: transparent;
-    background-color: rgba(202, 202, 202, 0.313);  
+    background-color: rgba(202, 202, 202, 0.313); 
+    text-align: center;
 }
 
-.btnGuardar{
-    height:50px;
-    width: 150px;
+.btnAñadir{
+    height:30px;
+    width: 200px;
     border-radius: 50px;
 text-align: center;
 font-size: 16px;
@@ -97,5 +141,82 @@ border: transparent;
 
 
 .divBotones{
+text-align: center;
+}
+
+/*estilos de los elements creados en JavaScript*/
+.tarea-evento{
+    font-family: sans-serif;
+    src: url(/Proyecto-2-FWD/src/font/AvenirLTStd-Black.otf);
+    font-size: 16px;
+    color: #20243F;
+}
+
+.btnEliminar {
+    width: 30px;
+    height: 30px;
+    background: url(/Proyecto-2-FWD/src/img/icono_eliminar.png) no-repeat center center;
+    background-size: contain;
+    text-indent: -9999px; /* Ocultar el texto del botón */
+    border: transparent;
+    cursor: pointer;
+    margin-right: 30px;
+}
+
+.btnEditar {
+    width: 30px;
+    height: 30px;
+    background: url(/Proyecto-2-FWD/src/img/icono_editar.png) no-repeat center center;
+    background-size: contain;
+    text-indent: -9999px; /* Ocultar el texto del botón */
+    border: transparent;
+    cursor: pointer;
+}
+
+.btnSave{
+    width: 30px;
+    height: 30px;
+    background: url(/Proyecto-2-FWD/src/img/icono_actualizar.png) no-repeat center center;
+    background-size: contain;
+    text-indent: -9999px; /* Ocultar el texto del botón */
+    border: transparent;
+    cursor: pointer;
+    margin-top: 10px;
+} 
+
+.inputEdit{
+    height:add(5rem, input-height-border);
+    line-height:1.25;
+    padding-top:1.625rem;
+    padding-block:.625rem;
+    height:10px;
+    width: 300px;
+    transform:scale(.85) translateY(-.5rem) translateX(.15rem);
+    color:gray-300;
+    transition: opacity .1s ease-in-out, transform .1s ease-in-out;
+    font-size: 16px;
+    border-radius: 50px;
+    border: transparent;
+    background-color: rgba(202, 202, 202, 0.313); 
     text-align: center;
+    color: #656565;
+}
+
+.inputEditFecha{
+    height:add(5rem, input-height-border);
+    line-height:1.25;
+    padding-top:1.625rem;
+    padding-block:.625rem;
+    height:10px;
+    width: 300px;
+    transform:scale(.85) translateY(-.5rem) translateX(.15rem);
+    color:gray-300;
+    transition: opacity .1s ease-in-out, transform .1s ease-in-out;
+    font-size: 16px;
+    border-radius: 50px;
+    border: transparent;
+    background-color: rgba(202, 202, 202, 0.313); 
+    text-align: center;
+    margin-top: 5px;
+    color: #656565;
 }
