@@ -226,6 +226,7 @@ text-align: center;
     .header {
         grid-template-columns: 1fr;
         text-align: center;
+        width:auto;
     }
 
     .divTareasEventos {
@@ -242,7 +243,8 @@ text-align: center;
     }
 
     .input1, .input2 {
-        width: 90%;
+        height:50px;
+        width: 400px;
     }
 }
 
@@ -251,20 +253,19 @@ text-align: center;
         margin-top: 30px;
     }
 .header{
-    width: auto;
+    max-width: 1920;
     height: 160px;
 }
 .gestión{
     font-size: 20px;
 }
     .tareas {
-        width: 100%;
+ 
         height: 300px;
         padding-left: 40px;
         padding-right: 40px;
     }
     .eventos {
-        width: 100%;
         height: 300px;
         padding-left: 40px;
         padding-right: 40px;
@@ -272,6 +273,9 @@ text-align: center;
     }
 
     .input1, .input2 {
-        width: 80%;
+        width: 200px;
+    }
+    .input{
+        margin-top: 25px;
     }
 }

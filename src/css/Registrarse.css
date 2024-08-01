@@ -156,10 +156,11 @@ h1{
         font-size: 40px;
     }
     .divGestión{
-        text-align: center;
-padding-top: 5px;
-padding-bottom: 5px;
-padding-left: 80px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 100px;
+    padding-right: 50px;
+    width: auto;
     }
     .divSesión{
         margin-bottom: 150px;
@@ -171,6 +172,13 @@ padding-left: 80px;
     .inputRegistrer {
         width:160px;
     }
+    .divGestión{
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 130px;
+        padding-right: 50px;
+        width: auto;
+        }
 
     .cajaRegistrarse {
     max-width: 300px;

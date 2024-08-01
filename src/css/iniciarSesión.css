@@ -1,18 +1,15 @@
 body{
     margin: 0px;
     background-image: url(/Proyecto-2-FWD/src/img/fondo-iniciarSesión\ 2-01.jpg);
- background-size:cover;
- background-repeat: no-repeat;
- min-height: 100vh; /* Asegura que el fondo cubra al menos la altura del viewport */
- width: 100%;
+    background-size:cover;
+    background-repeat: no-repeat;
+    min-height: 100vh; /* Para que el fondo cubra al menos la altura de la ventana gráfica */
+    width: 100%;
 }
 
 .iconoLogin{
     width: auto;
     height: 121px;
-    
-    
-
 }
 
 .divIconoLogin{
@@ -42,7 +39,6 @@ body{
     text-align: center;
 }
 
-
 .divUsuario{
     display: flex;
     justify-content: center;
@@ -58,11 +54,11 @@ body{
     height:50px;
     width: 150px;
     border-radius: 50px;
-text-align: center;
-font-size: 16px;
-background-color: #EF5484;
-color: rgb(255, 255, 255);
-border: transparent;
+    text-align: center;
+    font-size: 16px;
+    background-color: #EF5484;
+    color: rgb(255, 255, 255);
+    border: transparent;
 
 }
 .divBtn{
@@ -71,7 +67,8 @@ border: transparent;
 }
 
 
-/*Media Queries*/
+/*MEDIA QUERIES*/
+
 @media (max-width: 500px) {
     .divIconoLogin {
       display: flex;
@@ -80,11 +77,9 @@ border: transparent;
       margin-bottom: -30px;
     
     }
-    
     .inputIniciarSesión {
         width: 90%;
     }
-
     .divUsuario, .divContraseña, .divBtn {
         margin-top: 5px;
     }
@@ -95,7 +90,6 @@ border: transparent;
         display: flex;
         align-items: center;
         margin-bottom: 20px;
-
     }
 
     .inputIniciarSesión {
@@ -117,7 +111,6 @@ border: transparent;
         align-items: center;
         justify-content: center;
         margin-bottom: 80px;
-
     }
     .inputIniciarSesión {
         width: 400px;
